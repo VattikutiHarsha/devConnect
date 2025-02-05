@@ -1,0 +1,20 @@
+{
+  "name": "devconnect",
+  "version": "1.0.0",
+  "description": "connect with devs",
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "Harsha",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
