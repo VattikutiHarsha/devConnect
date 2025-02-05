@@ -2,16 +2,16 @@ const express = require("express");
 
 const app = express();
 
-app.use("/", (req, res) => {
-    res.send("Welcome User!");
+const {adminAuth} = require("./middlewares/auth");
+
+app.use("/admin", adminAuth);
+
+app.get("/admin/getAllData", (req, res, next) => {
+    res.send("All data sent");
 });
 
-app.use("/hello", (req, res) => {
-    res.send("Hello User!");
-});
-
-app.use("/work", (req, res) => {
-    res.send("Working....");
+app.delete("/admin/deleteAllData", (req, res, next) => {
+    res.send("deleted user");
 });
 
 app.listen(3000, () => {
