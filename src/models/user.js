@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minLength: 4,
-        macLength: 50,
+        maxLength: 50,
     },
     lastName: {
         type: String,
@@ -41,6 +41,7 @@ const userSchema = new mongoose.Schema({
     },
     skills: {
         type: [String],
+        required: true,
     },
 },
 {
