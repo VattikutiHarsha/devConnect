@@ -39,6 +39,20 @@ const userSchema = new mongoose.Schema({
             message: `{VALUE} is not valid`
         },
     },
+    about: {
+        type: String,
+        default: "This is default about",
+        trim: true,
+    },
+    photoUrl: {
+        type: String,
+        default: "https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg",
+        validate: {
+            validator: (value) =>
+                /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp)$/i.test(value), // Validates URL format
+            message: "Invalid image URL",
+        },
+    },   
     skills: {
         type: [String],
         required: true,

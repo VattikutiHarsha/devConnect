@@ -14,13 +14,21 @@ const validateSignUpData = (req) => {
     }
 };
 
-const validateEditProfileData = (req) => {
-    const allowedEditFields = ["firstName", "lastName", "gender", "age", "skills"];
+const validateEditProfileData = (data) => {
+    const allowedEditFields = ["firstName", "lastName", "gender", "age", "skills", "photoUrl", "about"];
 
     //Allows only the fields method by checking keys
-    const isEditAllowed = Object.keys(req.body).every((field) => allowedEditFields.includes(field));
+    const isEditAllowed = Object.keys(data).every((field) => allowedEditFields.includes(field));
 
-    return isEditAllowed;
-}
+    if (!isEditAllowed) {
+        throw new Error("Invalid fields in edit request");
+    }
+
+    if (data.skills && !Array.isArray(data.skills)) {
+        throw new Error("Skills must be an array");
+    }
+
+    return true;
+};
 
 module.exports = { validateSignUpData, validateEditProfileData };
