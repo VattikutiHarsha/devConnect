@@ -5,7 +5,6 @@ const { validateEditProfileData } = require("../utils/validation");
 
 profileRouter.get("/profile/view", userAuth, async(req, res) => {
     try{
-        console.log("Cookies received in backend:", req.cookies);
 
         const user = req.user;
         
@@ -16,7 +15,6 @@ profileRouter.get("/profile/view", userAuth, async(req, res) => {
 });
 
 profileRouter.put("/profile/edit", userAuth, async (req, res) => {
-    console.log("Request Body:", req.body);
     
     try {
         if(!validateEditProfileData(req.body)) {

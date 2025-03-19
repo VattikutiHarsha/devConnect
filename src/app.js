@@ -7,7 +7,6 @@ const cors = require("cors");
 const allowedOrigins = ["http://localhost:5173"];
 
 app.use((req, res, next) => {
-    console.log(`CORS Middleware: ${req.method} request from ${req.headers.origin}`);
     next();
 });
 

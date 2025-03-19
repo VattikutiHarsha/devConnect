@@ -8,7 +8,6 @@ const userAuth = async (req, res, next) => {
         if(!token){
             return res.status(401).send("Please login!");
         }
-        console.log("Cookies received in backend:", req.cookies);
 
 
         const decodedObj = await jwt.verify(token, "DEV@connect$420");
